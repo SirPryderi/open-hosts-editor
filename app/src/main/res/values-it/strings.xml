@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_backup">Backup</string>
+    <string name="action_confirm">Conferma</string>
+    <string name="action_delete">Elimina</string>
+    <string name="action_edit">Modifica</string>
+    <string name="action_restore">Ripristina</string>
+    <string name="action_settings">Impostazioni</string>
+</resources>
