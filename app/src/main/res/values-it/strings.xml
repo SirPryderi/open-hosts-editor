@@ -6,4 +6,5 @@
     <string name="action_edit">Modifica</string>
     <string name="action_restore">Ripristina</string>
     <string name="action_settings">Impostazioni</string>
+    <string name="action_about">Informazioni</string>
 </resources>

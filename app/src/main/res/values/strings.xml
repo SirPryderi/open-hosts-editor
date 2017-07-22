@@ -7,5 +7,5 @@
     <string name="action_confirm">Confirm</string>
     <string name="action_delete">Delete</string>
     <string name="action_about">About</string>
-    <string name="copy_right">Copyrights © %1$d</string>
+    <string name="copy_right" translatable="false">Copyright © %1$d</string>
 </resources>
