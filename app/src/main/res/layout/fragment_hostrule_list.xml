@@ -6,11 +6,11 @@
     android:name="me.vittorio_io.openhostseditor.HostRuleFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="vertical"
     app:layoutManager="LinearLayoutManager"
-    tools:context="me.vittorio_io.openhostseditor.fragments.hostrule.Fragment"
-    tools:listitem="@layout/fragment_hostrule"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="me.vittorio_io.openhostseditor.fragments.hostrule.Fragment"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp"
-    tools:showIn="@layout/activity_main"
-    />
+    tools:listitem="@layout/fragment_hostrule"
+    tools:showIn="@layout/activity_main" />
