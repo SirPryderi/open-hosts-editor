@@ -7,4 +7,5 @@
     <string name="action_restore">Ripristina</string>
     <string name="action_settings">Impostazioni</string>
     <string name="action_about">Informazioni</string>
+    <string name="action_save">Salva</string>
 </resources>

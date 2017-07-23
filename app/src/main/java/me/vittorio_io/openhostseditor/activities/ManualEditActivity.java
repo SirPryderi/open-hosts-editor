@@ -2,6 +2,7 @@ package me.vittorio_io.openhostseditor.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
@@ -21,6 +22,10 @@ public class ManualEditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manual_edit);
 
+        loadRules();
+    }
+
+    private void loadRules() {
         EditText editor = (EditText) findViewById(R.id.editText);
 
         editor.setHorizontallyScrolling(true);
@@ -33,8 +38,6 @@ public class ManualEditActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     private void updateRules() {
@@ -63,16 +66,29 @@ public class ManualEditActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        updateRules();
         super.onBackPressed();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+
+        getMenuInflater().inflate(R.menu.menu_editor, menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                updateRules();
                 finish();
+                return true;
+            case R.id.action_save:
+                this.updateRules();
+                finish();
+                return true;
+            case R.id.action_restore:
+                this.loadRules();
                 return true;
         }
         return false;
