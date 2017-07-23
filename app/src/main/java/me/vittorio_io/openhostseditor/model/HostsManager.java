@@ -16,6 +16,7 @@ import java.net.MalformedURLException;
 import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -149,6 +150,15 @@ public class HostsManager {
         return file;
     }
 
+    public static List<File> getBackupList() throws Exception {
+        if (!isExternalStorageReadable()) {
+            throw new Exception("External storage not readable.");
+        } else {
+            File dir = getBackupStorageDirectory();
+
+            return Arrays.asList(dir.listFiles());
+        }
+    }
 
     /* Checks if external storage is available for read and write */
     private static boolean isExternalStorageWritable() {
