@@ -150,9 +150,9 @@ public class HostsManager {
         return file;
     }
 
-    public static List<File> getBackupList() throws Exception {
+    public static List<File> getBackupList() {
         if (!isExternalStorageReadable()) {
-            throw new Exception("External storage not readable.");
+            throw new RuntimeException("External storage not readable.");
         } else {
             File dir = getBackupStorageDirectory();
 

@@ -18,10 +18,12 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.EditRuleActivity"
+        <activity
+            android:name=".activities.EditRuleActivity"
             android:label="Edit rules">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -33,6 +35,11 @@
                 android:value=".activities.MainActivity" />
         </activity>
         <activity android:name=".activities.AboutActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+        <activity android:name=".activities.RestoreActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity" />

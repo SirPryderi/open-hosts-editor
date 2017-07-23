@@ -1,6 +1,7 @@
 package me.vittorio_io.openhostseditor.activities;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -137,20 +138,26 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
             case R.id.action_edit: {
-                Intent intent = new Intent(MainActivity.this, ManualEditActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivityForResult(intent, 1);
+                openActivityForResult(ManualEditActivity.class);
+                return true;
+            }
+            case R.id.action_restore: {
+                openActivityForResult(RestoreActivity.class);
                 return true;
             }
             case R.id.action_about: {
-                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivityForResult(intent, 1);
+                openActivityForResult(AboutActivity.class);
                 return true;
             }
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void openActivityForResult(Class<? extends Activity> targetActivity) {
+        Intent intent = new Intent(MainActivity.this, targetActivity);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivityForResult(intent, 1);
     }
 
     @Override
