@@ -20,7 +20,6 @@ import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -60,8 +59,7 @@ public class MainActivity extends AppCompatActivity {
             if (rules == null) {
                 rules = HostsManager.readFromFile();
             } else if (!rules.equals(HostsManager.readFromFile())) {
-                File file = HostsManager.saveListToTempFile(getApplicationContext(), rules);
-                HostsManager.writeFromFile(file);
+                HostsManager.writeFromList(getApplicationContext(), rules);
                 rules = HostsManager.readFromFile();
                 haveASnack("Changes saved to disk.");
             }

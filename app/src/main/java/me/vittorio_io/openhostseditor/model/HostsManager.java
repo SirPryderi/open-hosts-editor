@@ -119,6 +119,11 @@ public class HostsManager {
         root.execute();
     }
 
+    public static void writeFromList(Context context, final List<HostRule> rules) throws IOException {
+        File file = HostsManager.saveListToTempFile(context, rules);
+        HostsManager.writeFromFile(file);
+    }
+
     public static void saveBackup() throws IOException {
         if (isExternalStorageWritable()) {
             writeToFile(new File(getBackupStorageDirectory(), "backup-" + getTimestamp() + ".txt"));
@@ -141,7 +146,7 @@ public class HostsManager {
         return temp;
     }
 
-    public static File getBackupStorageDirectory() {
+    private static File getBackupStorageDirectory() {
         // Get the directory for the user's public pictures directory.
         File file = new File(Environment.getExternalStorageDirectory().toString(), "OpenHostsEditor");
 
