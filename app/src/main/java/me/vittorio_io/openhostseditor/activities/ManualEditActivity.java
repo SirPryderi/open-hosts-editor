@@ -1,21 +1,16 @@
 package me.vittorio_io.openhostseditor.activities;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
 
 import me.vittorio_io.openhostseditor.R;
-import me.vittorio_io.openhostseditor.model.HostRule;
 import me.vittorio_io.openhostseditor.model.HostsManager;
 
-public class ManualEditActivity extends AppCompatActivity {
+public class ManualEditActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,27 +36,16 @@ public class ManualEditActivity extends AppCompatActivity {
     }
 
     private void updateRules() {
-        EditText editor = (EditText) findViewById(R.id.editText);
+        String string = ((EditText) findViewById(R.id.editText)).getText().toString();
 
-        String[] lines = editor.getText().toString().split("\n");
-        ArrayList<HostRule> rules = new ArrayList<>();
-
-        for (String line : lines) {
-            try {
-                HostRule rule = HostRule.fromHostLine(line);
-
-                if (rule != null) {
-                    rules.add(rule);
-                }
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (UnknownHostException e) {
-                e.printStackTrace();
-            }
+        try {
+            HostsManager.writeFromString(getApplicationContext(), string);
+        } catch (IOException e) {
+            e.printStackTrace();
+            haveASnack("Something went wrong.");
+        } catch (Exception e) {
+            haveASnack("Oops! ERRORZ!");
         }
-
-        MainActivity.rules = rules;
     }
 
     @Override

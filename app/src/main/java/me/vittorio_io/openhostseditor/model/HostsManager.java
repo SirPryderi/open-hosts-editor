@@ -69,7 +69,7 @@ public class HostsManager {
         return rules;
     }
 
-    public static void writeToFile(File file) throws IOException {
+    private static void writeToFile(File file) throws IOException {
         // TODO maybe replace with a simple copy function?
         file.createNewFile();
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
@@ -119,9 +119,63 @@ public class HostsManager {
         root.execute();
     }
 
+    @SuppressWarnings("WeakerAccess")
     public static void writeFromList(Context context, final List<HostRule> rules) throws IOException {
         File file = HostsManager.saveListToTempFile(context, rules);
-        HostsManager.writeFromFile(file);
+        writeFromFile(file);
+    }
+
+    public static void writeFromString(Context context, String string) throws IOException {
+        File temp = new File(context.getCacheDir(), "temp");
+        writeStringToFile(string, temp);
+        writeFromFile(temp);
+    }
+
+    private static void writeStringToFile(String string, File file) throws IOException {
+        file.createNewFile();
+
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+
+        bufferedWriter.write(string);
+
+        bufferedWriter.close();
+    }
+
+    public static boolean removeRule(Context context, HostRule rule) throws IOException {
+        List<HostRule> rules = readFromFile();
+
+        if (rules.remove(rule)) {
+            writeFromList(context, rules);
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean removeRule(Context context, int index) throws IOException {
+        List<HostRule> rules = readFromFile();
+
+        if (rules.remove(index) != null) {
+            writeFromList(context, rules);
+            return true;
+        }
+
+        return false;
+    }
+
+    public static void editRule(Context context, int index, HostRule newRule) throws IOException {
+        List<HostRule> rules = readFromFile();
+
+        rules.set(index, newRule);
+
+        writeFromList(context, rules);
+    }
+
+    public static void addRule(Context context, HostRule rule) throws IOException {
+        List<HostRule> rules = readFromFile();
+
+        rules.add(rule);
+
+        writeFromList(context, rules);
     }
 
     public static void saveBackup() throws IOException {
@@ -132,7 +186,7 @@ public class HostsManager {
         }
     }
 
-    public static File saveListToTempFile(Context context, List<HostRule> rules) throws IOException {
+    private static File saveListToTempFile(Context context, List<HostRule> rules) throws IOException {
         File temp = new File(context.getCacheDir(), "temp");
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(temp));
 
@@ -174,6 +228,28 @@ public class HostsManager {
 
             return files;
         }
+    }
+
+    public static List<HostRule> listFromString(String string) {
+        String[] lines = string.split("\n");
+        ArrayList<HostRule> rules = new ArrayList<>();
+
+        for (String line : lines) {
+            try {
+                HostRule rule = HostRule.fromHostLine(line);
+
+                if (rule != null) {
+                    rules.add(rule);
+                }
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return rules;
     }
 
     /* Checks if external storage is available for read and write */

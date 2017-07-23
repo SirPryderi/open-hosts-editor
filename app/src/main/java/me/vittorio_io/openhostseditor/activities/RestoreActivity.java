@@ -1,11 +1,8 @@
 package me.vittorio_io.openhostseditor.activities;
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 
 import java.io.File;
 
@@ -14,7 +11,7 @@ import me.vittorio_io.openhostseditor.fragments.backup.Fragment;
 import me.vittorio_io.openhostseditor.fragments.backup.RecyclerViewAdapter;
 import me.vittorio_io.openhostseditor.model.HostsManager;
 
-public class RestoreActivity extends AppCompatActivity {
+public class RestoreActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,17 +52,5 @@ public class RestoreActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-
-    public void haveASnack(String message) {
-        System.out.println(message);
-        View view = getWindow().getDecorView().getRootView();
-
-        try {
-            Snackbar.make(view, message, Snackbar.LENGTH_LONG).setAction("Action", null).show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

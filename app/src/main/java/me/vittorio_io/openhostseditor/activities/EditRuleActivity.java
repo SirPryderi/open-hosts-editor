@@ -3,19 +3,19 @@ package me.vittorio_io.openhostseditor.activities;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.Toast;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.UnknownHostException;
 
 import me.vittorio_io.openhostseditor.R;
 import me.vittorio_io.openhostseditor.model.HostRule;
+import me.vittorio_io.openhostseditor.model.HostsManager;
 
-public class EditRuleActivity extends AppCompatActivity {
+public class EditRuleActivity extends BaseActivity {
 
     private boolean isEditing = false;
     private int ruleId = -1;
@@ -84,21 +84,29 @@ public class EditRuleActivity extends AppCompatActivity {
         return false;
     }
 
-    private void goBack(){
+    private void goBack() {
         // TODO check for unsaved changes
         //updateRule();
         finish();
     }
 
-    private void removeRule(){
+    private void removeRule() {
         new AlertDialog.Builder(this)
                 .setTitle("Delete rule")
                 .setMessage("Do you really want to delete this rule?")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        MainActivity.rules.remove(ruleId);
-                        finish();
-                    }})
+                        try {
+                            if (!HostsManager.removeRule(getApplicationContext(), ruleId))
+                                throw new RuntimeException();
+                            haveASnack("Rule removed.");
+                            finish();
+                        } catch (Exception e) {
+                            haveASnack("Failed to remove rule.");
+                        }
+
+                    }
+                })
                 .setNegativeButton(android.R.string.no, null).show();
 
     }
@@ -116,18 +124,21 @@ public class EditRuleActivity extends AppCompatActivity {
             HostRule rule = HostRule.fromHostLine(toParse);
 
             if (isEditing) {
-                MainActivity.rules.set(ruleId, rule);
+                HostsManager.editRule(getApplicationContext(), ruleId, rule);
             } else {
-                MainActivity.rules.add(rule);
+                HostsManager.addRule(getApplicationContext(), rule);
             }
 
-
+            finish();
+            return;
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (UnknownHostException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        finish();
+        haveASnack("Something went wrong.");
     }
 }
