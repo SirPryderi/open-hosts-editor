@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void openEditRuleActivity(int index){
+    private void openEditRuleActivity(int index) {
         Intent intent = new Intent(MainActivity.this, EditRuleActivity.class);
         Bundle b = new Bundle();
         b.putInt("key", index); //Your id
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.push_right_out, R.anim.push_right_in);
     }
 
-    private void openNewRuleActivity(){
+    private void openNewRuleActivity() {
         openEditRuleActivity(-1);
     }
 
@@ -125,27 +125,29 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        } else if (id == R.id.action_backup) {
-            int permissionCheck = ContextCompat.checkSelfPermission(this,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        switch (id) {
+            case R.id.action_settings: {
+                return true;
+            }
+            case R.id.action_backup: {
+                int permissionCheck = ContextCompat.checkSelfPermission(this,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
-            System.err.println(permissionCheck);
-
-            getPermissionAndExecute(Manifest.permission.WRITE_EXTERNAL_STORAGE, WRITE_BACKUP_ACTION);
-            return true;
-        } else if (id == R.id.action_edit) {
-            Intent intent = new Intent(MainActivity.this, ManualEditActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivityForResult(intent, 1);
-            return true;
-        } else if(id == R.id.action_about){
-            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivityForResult(intent, 1);
-            return true;
+                getPermissionAndExecute(Manifest.permission.WRITE_EXTERNAL_STORAGE, WRITE_BACKUP_ACTION);
+                return true;
+            }
+            case R.id.action_edit: {
+                Intent intent = new Intent(MainActivity.this, ManualEditActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivityForResult(intent, 1);
+                return true;
+            }
+            case R.id.action_about: {
+                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivityForResult(intent, 1);
+                return true;
+            }
         }
 
         return super.onOptionsItemSelected(item);
