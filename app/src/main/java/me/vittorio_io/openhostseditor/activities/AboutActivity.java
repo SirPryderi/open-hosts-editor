@@ -25,7 +25,8 @@ public class AboutActivity extends AppCompatActivity {
 
         View aboutPage = new AboutPage(this)
                 .isRTL(false)
-                .setImage(R.mipmap.dummy_image)
+                .setImage(R.mipmap.ic_launcher)
+                .setDescription("Free and open source application to edit the /etc/hosts file for android devices. Root required.")
                 .addItem(new Element().setTitle("Version 6.2").setValue("Sono buttana"))
                 .addItem(adsElement)
                 .addGroup("Connect with us")

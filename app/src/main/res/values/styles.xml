@@ -2,7 +2,7 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorAccent">@android:color/holo_blue_dark</item>
+        <item name="colorAccent">#3F65CA</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
