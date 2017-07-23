@@ -137,6 +137,8 @@ public class EditRuleActivity extends BaseActivity {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         haveASnack("Something went wrong.");
