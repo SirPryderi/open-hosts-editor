@@ -17,6 +17,8 @@ import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -156,7 +158,16 @@ public class HostsManager {
         } else {
             File dir = getBackupStorageDirectory();
 
-            return Arrays.asList(dir.listFiles());
+            List<File> files = Arrays.asList(dir.listFiles());
+
+            Collections.sort(files, new Comparator<File>() {
+                @Override
+                public int compare(File file1, File file2) {
+                    return (int) (file2.lastModified() - file1.lastModified());
+                }
+            });
+
+            return files;
         }
     }
 
