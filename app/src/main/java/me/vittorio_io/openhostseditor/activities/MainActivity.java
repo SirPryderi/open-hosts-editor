@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -56,7 +55,6 @@ public class MainActivity extends BaseActivity {
                 rules = HostsManager.readFromFile();
             } else if (!rules.equals(HostsManager.readFromFile())) {
                 rules = HostsManager.readFromFile();
-                haveASnack("Changes saved to disk.");
             }
         } catch (IOException e) {
             // TODO error message
@@ -76,7 +74,7 @@ public class MainActivity extends BaseActivity {
         listView.swapAdapter(listViewAdapter, true);
 
         // source: https://stackoverflow.com/a/39145431
-        listView.setOnScrollListener(new HidingScrollListener() {
+        listView.addOnScrollListener(new HidingScrollListener() {
             @Override
             public void onHide() {
                 CoordinatorLayout.LayoutParams lp = (CoordinatorLayout.LayoutParams) fab.getLayoutParams();
@@ -124,8 +122,10 @@ public class MainActivity extends BaseActivity {
                 return true;
             }
             case R.id.action_backup: {
-                int permissionCheck = ContextCompat.checkSelfPermission(this,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                // There is no way of launching the callback
+                // without asking for the permission at the moment,
+                // so it's pointless to check if the permission has been granted.
+                // int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
                 getPermissionAndExecute(Manifest.permission.WRITE_EXTERNAL_STORAGE, WRITE_BACKUP_ACTION);
                 return true;
@@ -177,7 +177,6 @@ public class MainActivity extends BaseActivity {
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
                 }
-                return;
             }
 
             // other 'case' lines to check for other
