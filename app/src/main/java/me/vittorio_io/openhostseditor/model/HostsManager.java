@@ -180,7 +180,7 @@ public class HostsManager {
 
     public static void saveBackup() throws IOException {
         if (isExternalStorageWritable()) {
-            writeToFile(new File(getBackupStorageDirectory(), "backup-" + getTimestamp() + ".txt"));
+            writeToFile(new File(getBackupStorageDirectory(), getTimestamp()));
         } else {
             throw new RuntimeException("Storage not ready to write.");
         }
