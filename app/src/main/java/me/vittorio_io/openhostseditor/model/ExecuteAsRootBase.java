@@ -6,6 +6,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -21,6 +22,15 @@ import java.util.ArrayList;
 
 @SuppressWarnings("WeakerAccess")
 public abstract class ExecuteAsRootBase {
+    public static boolean isRootAvailable() {
+        for (String pathDir : System.getenv("PATH").split(":")) {
+            if (new File(pathDir, "su").exists()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @SuppressWarnings("unused")
     public static boolean canRunRootCommands() {
         boolean returnValue;

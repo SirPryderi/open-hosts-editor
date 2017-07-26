@@ -1,12 +1,14 @@
 package me.vittorio_io.openhostseditor.activities;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -22,6 +24,7 @@ import me.vittorio_io.openhostseditor.R;
 import me.vittorio_io.openhostseditor.fragments.hostrule.Fragment;
 import me.vittorio_io.openhostseditor.fragments.hostrule.HidingScrollListener;
 import me.vittorio_io.openhostseditor.fragments.hostrule.RecyclerViewAdapter;
+import me.vittorio_io.openhostseditor.model.ExecuteAsRootBase;
 import me.vittorio_io.openhostseditor.model.HostRule;
 import me.vittorio_io.openhostseditor.model.HostsManager;
 
@@ -46,7 +49,22 @@ public class MainActivity extends BaseActivity {
             }
         });
 
+        if (!ExecuteAsRootBase.isRootAvailable()) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Root not detected")
+                    .setMessage("Root was not detected, the application might not run as expected.\nDo you wish to continue anyway?")
+                    .setIcon(R.drawable.ic_warning)
+                    .setPositiveButton(android.R.string.yes, null)
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    }).show();
+        }
+
         refreshList();
+
     }
 
     private void refreshList() {
