@@ -35,7 +35,11 @@ public class RestoreActivity extends BaseActivity {
 
                         return;
                     case ACTION_LOAD_BACKUPS: // restore pressed
-                        HostsManager.writeFromFile(item);
+                        if (HostsManager.writeFromFile(item)) {
+                            finish();
+                        } else {
+                            haveASnack("Backup not restored.");
+                        }
                         return;
                     case 2: // delete pressed
                         if (item.delete()) {

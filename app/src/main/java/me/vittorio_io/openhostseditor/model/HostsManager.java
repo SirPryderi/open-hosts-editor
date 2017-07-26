@@ -100,7 +100,7 @@ public class HostsManager {
         return builder.toString();
     }
 
-    public static void writeFromFile(final File file) {
+    public static boolean writeFromFile(final File file) {
         ExecuteAsRootBase root = new ExecuteAsRootBase() {
             @Override
             protected ArrayList<String> getCommandsToExecute() {
@@ -116,19 +116,19 @@ public class HostsManager {
             }
         };
 
-        root.execute();
+        return root.execute();
     }
 
     @SuppressWarnings("WeakerAccess")
-    public static void writeFromList(Context context, final List<HostRule> rules) throws IOException {
+    public static boolean writeFromList(Context context, final List<HostRule> rules) throws IOException {
         File file = HostsManager.saveListToTempFile(context, rules);
-        writeFromFile(file);
+        return writeFromFile(file);
     }
 
-    public static void writeFromString(Context context, String string) throws IOException {
+    public static boolean writeFromString(Context context, String string) throws IOException {
         File temp = new File(context.getCacheDir(), "temp");
         writeStringToFile(string, temp);
-        writeFromFile(temp);
+        return writeFromFile(temp);
     }
 
     private static void writeStringToFile(String string, File file) throws IOException {
