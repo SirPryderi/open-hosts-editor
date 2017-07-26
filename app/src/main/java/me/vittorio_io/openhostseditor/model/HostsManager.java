@@ -182,7 +182,7 @@ public class HostsManager {
         if (isExternalStorageWritable()) {
             writeToFile(new File(getBackupStorageDirectory(), getTimestamp()));
         } else {
-            throw new RuntimeException("Storage not ready to write.");
+            throw new IOException(String.format("Storage not ready to write. Storage status is %s.", Environment.getExternalStorageState()));
         }
     }
 
