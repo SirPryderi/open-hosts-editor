@@ -19,13 +19,13 @@
         android:icon="@drawable/ic_archive_white_24dp"
         android:orderInCategory="100"
         android:title="@string/action_backup"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_restore"
         android:icon="@drawable/ic_unarchive_white_24dp"
         android:orderInCategory="100"
         android:title="@string/action_restore"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_about"
         android:orderInCategory="100"
