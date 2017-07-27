@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">Open Hosts Editor</string>
+    <string name="dev_name" translatable="false">Vittorio Iocolano</string>
     <string name="action_settings">Settings</string>
     <string name="action_backup">Backup</string>
     <string name="action_restore">Restore</string>
