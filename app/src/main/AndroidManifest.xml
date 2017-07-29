@@ -21,6 +21,19 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://vittorio-io.me/openhostseditor” -->
+                <data
+                    android:host="vittorio-io.me"
+                    android:pathPrefix="/openhostseditor"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix-->
+            </intent-filter>
         </activity>
         <activity
             android:name=".activities.EditRuleActivity"
