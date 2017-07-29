@@ -1,6 +1,7 @@
 package me.vittorio_io.openhostseditor.activities;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -32,7 +33,13 @@ public class RestoreActivity extends BaseActivity {
             public void onListFragmentInteraction(File item, int position) {
                 switch (position) {
                     case 0: // row pressed
+                        Intent intent = new Intent(RestoreActivity.this, PreviewActivity.class);
+                        Bundle b = new Bundle();
+                        b.putSerializable("file", item); //Your id
+                        intent.putExtras(b); //Put your id to your next Intent
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
+                        startActivityForResult(intent, 0);
                         return;
                     case ACTION_LOAD_BACKUPS: // restore pressed
                         if (HostsManager.writeFromFile(item)) {
@@ -55,6 +62,13 @@ public class RestoreActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        getPermissionAndExecute(Manifest.permission.WRITE_EXTERNAL_STORAGE, ACTION_LOAD_BACKUPS);
     }
 
     @Override

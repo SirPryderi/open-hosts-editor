@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="horizontal|vertical"
+    tools:context="me.vittorio_io.openhostseditor.activities.PreviewActivity">
+
+    <TextView
+        android:id="@+id/textPreview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="6sp"
+        android:padding="@dimen/list_element_margin"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="14sp"
+        android:typeface="monospace" />
+</android.support.v4.widget.NestedScrollView>
