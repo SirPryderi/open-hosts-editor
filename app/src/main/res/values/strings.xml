@@ -11,4 +11,6 @@
     <string name="copy_right" translatable="false">Copyright © %1$d</string>
     <string name="action_save">Save</string>
     <string name="action_search">Search</string>
+    <string name="action_reset">Reset</string>
+    <string name="action_cancel">Cancel</string>
 </resources>

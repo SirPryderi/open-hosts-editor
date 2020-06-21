@@ -9,4 +9,6 @@
     <string name="action_about">Über</string>
     <string name="action_save">Speichern</string>
     <string name="action_search">Suchen</string>
+    <string name="action_reset">Zurücksetzen</string>
+    <string name="action_cancel">Abbrechen</string>
 </resources>

@@ -9,4 +9,6 @@
     <string name="action_about">Informazioni</string>
     <string name="action_save">Salva</string>
     <string name="action_search">Ricerca</string>
+    <string name="action_reset">Ripristina</string>
+    <string name="action_cancel">Annulla</string>
 </resources>
