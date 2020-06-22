@@ -51,8 +51,8 @@ public class MainActivity extends BaseActivity {
 
         if (!ExecuteAsRootBase.isRootAvailable()) {
             new AlertDialog.Builder(this)
-                    .setTitle("Root not detected")
-                    .setMessage("Root was not detected, the application might not run as expected.\nDo you wish to continue anyway?")
+                    .setTitle(R.string.title_no_root)
+                    .setMessage(R.string.message_no_root)
                     .setIcon(R.drawable.ic_warning)
                     .setPositiveButton(android.R.string.yes, null)
                     .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -76,7 +76,7 @@ public class MainActivity extends BaseActivity {
             }
         } catch (IOException e) {
             // TODO error message
-            haveASnack("Failed to read original hosts file.");
+            haveASnack(getString(R.string.message_failed_to_read_file));
             e.printStackTrace();
         }
 
@@ -184,14 +184,14 @@ public class MainActivity extends BaseActivity {
 
                     try {
                         HostsManager.saveBackup();
-                        haveASnack("Backup saved!");
+                        haveASnack(getString(R.string.message_backup_saved));
                     } catch (IOException e) {
-                        haveASnack("Failed to save a backup");
+                        haveASnack(getString(R.string.message_backup_not_saved));
                         e.printStackTrace();
                     }
 
                 } else {
-                    haveASnack("Permission denied. No changes made.");
+                    haveASnack(getString(R.string.message_permission_denied));
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
                 }

@@ -27,10 +27,9 @@ public abstract class BaseActivity extends AppCompatActivity {
                 != PackageManager.PERMISSION_GRANTED) {
 
             // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    permission)) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, permission)) {
 
-                haveASnack("I need to explain permission.");
+                haveASnack("We need additional permissions.");
 
                 askPermissionBase(permission, code);
 

@@ -51,7 +51,7 @@ public class PreviewActivity extends BaseActivity {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            textPreview.setText(String.format("Failed to load preview. %s", e.getLocalizedMessage()));
+            textPreview.setText(String.format("%s %s", getString(R.string.message_preview_not_loaded), e.getLocalizedMessage()));
         }
 
     }
@@ -71,10 +71,10 @@ public class PreviewActivity extends BaseActivity {
             }
             case R.id.action_delete: {
                 if (file.delete()) {
-                    haveASnack("Backup deleted successfully.");
+                    haveASnack(getString(R.string.message_backup_deleted));
                     finish();
                 } else {
-                    haveASnack("Failed to delete backup.");
+                    haveASnack(getString(R.string.message_backup_not_deleted));
                 }
                 return true;
             }
