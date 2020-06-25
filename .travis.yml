@@ -11,4 +11,7 @@ android:
 jdk:
   - oraclejdk8
 before_install:
+  - openssl aes-256-cbc -K $enc_keystore_key -iv $enc_keystore_pass -in upload-keystore.jks.enc -out upload-keystore.jks -d
   - chmod +x gradlew
+script:
+  - ./gradlew assembleRelease
