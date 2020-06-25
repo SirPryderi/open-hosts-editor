@@ -10,7 +10,10 @@ android:
     - extra-android-m2repository
 jdk:
   - oraclejdk8
+licenses:
+  - 'android-sdk-license-.+'
 before_install:
+  - yes | sdkmanager "platforms;android-29"
   - openssl aes-256-cbc -K $enc_keystore_key -iv $enc_keystore_pass -in upload-keystore.jks.enc -out upload-keystore.jks -d
   - chmod +x gradlew
 script:
