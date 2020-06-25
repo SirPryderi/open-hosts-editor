@@ -3,18 +3,18 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
     }
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
     defaultConfig {
         applicationId "me.vittorio_io.openhostseditor"
         minSdkVersion 15
-        targetSdkVersion 26
-        versionName '0.10.0-alpha'
+        targetSdkVersion 29
+        versionName '0.10.1-alpha'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
         }
-        versionCode 2
+        versionCode 3
     }
     buildTypes {
         release {
@@ -24,6 +24,12 @@ android {
     }
     productFlavors {
     }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -31,11 +37,11 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:26.0.0-alpha1'
-    compile 'com.android.support:support-v4:26.0.0-alpha1'
-    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+    compile 'com.android.support:appcompat-v7:28.0.0'
+    compile 'com.android.support.constraint:constraint-layout:1.1.3'
+    compile 'com.android.support:design:28.0.0'
+    compile 'com.android.support:support-v4:28.0.0'
+    compile 'com.android.support:recyclerview-v7:28.0.0'
     compile 'com.github.medyo:android-about-page:1.2.1'
     testCompile 'junit:junit:4.12'
 }
