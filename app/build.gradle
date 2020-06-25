@@ -34,6 +34,10 @@ android {
     }
 
     def isRunningOnTravis = System.getenv("CI") == "true"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
     if (isRunningOnTravis) {
         signingConfigs.release.storeFile = file("../upload-keystore.jks")
         signingConfigs.release.storePassword = System.getenv("keystore_password")
