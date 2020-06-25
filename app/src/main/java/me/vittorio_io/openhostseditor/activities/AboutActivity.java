@@ -1,5 +1,6 @@
 package me.vittorio_io.openhostseditor.activities;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -27,7 +28,7 @@ public class AboutActivity extends BaseActivity {
                 .addWebsite("https://sirpryderi.github.io/", "Developer Website")
                 .addEmail("pryderi.mail@gmail.com")
                 .addGroup(getString(R.string.app_version))
-                .addItem(new Element().setTitle("0.10.0-alpha"))
+                .addItem(new Element().setTitle(getVersion()))
                 .addGroup(getString(R.string.title_credits))
                 .addItem(new Element().setTitle(getString(R.string.app_credits) + " " + getString(R.string.app_developer)).setGravity(Gravity.CENTER))
                 .addItem(getCopyRightsElement())
@@ -50,5 +51,16 @@ public class AboutActivity extends BaseActivity {
             }
         });
         return copyRightsElement;
+    }
+
+    String getVersion() {
+        try {
+            return getApplicationContext()
+                .getPackageManager()
+                .getPackageInfo(getApplicationContext().getPackageName(), 0)
+                .versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            return "Unknown version";
+        }
     }
 }
