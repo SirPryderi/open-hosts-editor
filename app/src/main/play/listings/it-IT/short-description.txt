@@ -1,0 +1,1 @@
+Applicazione gratuita per modificare il file /etc/hosts. Root richiesto!

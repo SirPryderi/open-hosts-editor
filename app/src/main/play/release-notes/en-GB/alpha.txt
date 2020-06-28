@@ -1,0 +1,7 @@
+- Created activity to preview a stored backup
+- Updated about page
+- Application checks for root at start up
+- Changed backup name format
+- Removed old round icon
+- Better error handling
+- Various bug fixings and improvements

@@ -1,3 +1,7 @@
+plugins {
+    id("com.github.triplet.play") version "2.8.0"
+}
+
 apply plugin: 'com.android.application'
 
 android {
@@ -10,12 +14,12 @@ android {
         applicationId "me.vittorio_io.openhostseditor"
         minSdkVersion 15
         targetSdkVersion 29
-        versionName '0.10.1-alpha'
+        versionName '0.10.2-alpha'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
         }
-        versionCode 3
+        versionCode 4
     }
     buildTypes {
         release {
@@ -46,6 +50,10 @@ android {
     }
 }
 
+play {
+    serviceAccountCredentials = file("../service.json")
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -58,4 +66,10 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:28.0.0'
     compile 'com.github.medyo:android-about-page:1.2.1'
     testCompile 'junit:junit:4.12'
+}
+
+task printVersionName {
+    doLast {
+        println android.defaultConfig.versionName
+    }
 }
