@@ -16,7 +16,6 @@ before_install:
   - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
   - yes | sdkmanager --update
   - openssl aes-256-cbc -K $enc_keystore_key -iv $enc_keystore_pass -in upload-keystore.jks.enc -out upload-keystore.jks -d
-  - chmod +x gradlew
 script:
   - ./gradlew assembleRelease
   - ls -R app/build/outputs
