@@ -19,6 +19,7 @@ before_install:
   - chmod +x gradlew
 script:
   - ./gradlew assembleRelease
+  - ls -R app/build/outputs
 deploy:
   - provider: releases
     api_key: $github_deploy_token
