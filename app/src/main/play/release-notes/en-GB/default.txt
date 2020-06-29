@@ -1,7 +1,1 @@
-<en-GB>
 - Improvements & bugfixes
-</en-GB>
-
-<it-IT>
-- Miglioramenti e risoluzione di bugs
-</it-IT>
