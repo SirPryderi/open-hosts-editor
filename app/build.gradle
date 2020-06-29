@@ -46,6 +46,8 @@ android {
 
 play {
     serviceAccountCredentials = file("../service.json")
+    promoteTrack = "alpha"
+    resolutionStrategy = "auto"
 }
 
 dependencies {
