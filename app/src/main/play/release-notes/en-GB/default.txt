@@ -3,5 +3,5 @@
 </en-GB>
 
 <it-IT>
- - Miglioramenti e risoluzione di bugs
+- Miglioramenti e risoluzione di bugs
 </it-IT>
