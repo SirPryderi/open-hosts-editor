@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$TRAVIS_BRANCH" = "master" ]; then
+if [ "$TRAVIS_BRANCH" = "$DEPLOYMENT_BRANCH" ]; then
   ./gradlew publish
 else 
   ./gradlew build

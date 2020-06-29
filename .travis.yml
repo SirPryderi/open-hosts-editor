@@ -10,6 +10,8 @@ android:
     - extra-android-m2repository
 jdk:
   - oraclejdk8
+env:
+  - DEPLOYMENT_BRANCH=deploy
 before_install:
   - scripts/accept-licenses.sh
   - scripts/decrypt.sh upload-keystore.jks
@@ -28,4 +30,4 @@ deploy:
     name: "$APP_VERSION"
     tag_name: "$APP_VERSION"
     on:
-      branch: master
+      branch: "$DEPLOYMENT_BRANCH"
