@@ -17,6 +17,9 @@ import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.List;
@@ -147,8 +150,7 @@ public class MainActivity extends BaseActivity {
             builder.setNeutralButton(R.string.action_reset, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    searchString = "";
-                    refreshList(false);
+                    doSearch("");
                 }
             });
         }
@@ -156,7 +158,7 @@ public class MainActivity extends BaseActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     if (edTxtSearchString.length() != 0) {
-                        searchFilterList(edTxtSearchString.getText().toString());
+                        doSearch(edTxtSearchString.getText().toString());
                     }
                 }
             });
@@ -170,8 +172,38 @@ public class MainActivity extends BaseActivity {
         builder.show();
     }
 
+    private void doSearch(String searchString) {
+        // Change Visibility of the SearchBar
+        final LinearLayout lin = (LinearLayout) findViewById(R.id.search_layout);
+
+        if(searchString.length() != 0) {
+            this.searchString = searchString;
+            lin.setVisibility(View.VISIBLE);
+            searchFilterList(searchString);
+        } else {
+            this.searchString = "";
+            lin.setVisibility(View.GONE);
+            refreshList(false);
+        }
+
+    }
+
     private void searchFilterList(String searchString) {
         // Handle the result of the searchDialog()
+
+        // Handle the button action
+        ImageButton action_search_cancel = (ImageButton) findViewById(R.id.action_search_cancel);
+        action_search_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                doSearch("");
+            }
+        });
+
+
+        // Change TextView to show the current SearchString
+        TextView t = (TextView) findViewById(R.id.search_view_text);
+        t.setText(this.getString(R.string.action_searching)+" \""+searchString+"\"");
 
         if(searchString.endsWith(" ")) {
             searchString = searchString.substring(0,searchString.length()-1);

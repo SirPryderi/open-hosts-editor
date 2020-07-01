@@ -11,4 +11,6 @@
     <string name="action_search">Suchen</string>
     <string name="action_reset">Zurücksetzen</string>
     <string name="action_cancel">Abbrechen</string>
+    <string name="action_search_cancel">Suche abbrechen</string>
+    <string name="action_searching">Suche nach</string>
 </resources>
