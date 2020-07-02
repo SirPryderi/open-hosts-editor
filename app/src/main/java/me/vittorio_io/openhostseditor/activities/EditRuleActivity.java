@@ -2,7 +2,7 @@ package me.vittorio_io.openhostseditor.activities;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -45,9 +45,9 @@ public class EditRuleActivity extends BaseActivity {
             ip.setText(rule.getIp().toString().substring(1));
             url.setText(rule.getUrl());
 
-            setTitle("Edit Rule");
+            setTitle(getString(R.string.action_edit_rule));
         } else {
-            setTitle("Add Rule");
+            setTitle(getString(R.string.action_add_rule));
         }
     }
 
@@ -92,17 +92,17 @@ public class EditRuleActivity extends BaseActivity {
 
     private void removeRule() {
         new AlertDialog.Builder(this)
-                .setTitle("Delete rule")
-                .setMessage("Do you really want to delete this rule?")
+                .setTitle(R.string.action_delete_rule)
+                .setMessage(R.string.message_confirm_delete_rule)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         try {
                             if (!HostsManager.removeRule(getApplicationContext(), ruleId))
                                 throw new RuntimeException();
-                            haveASnack("Rule removed.");
+                            haveASnack(getString(R.string.message_rule_removed));
                             finish();
                         } catch (Exception e) {
-                            haveASnack("Failed to remove rule.");
+                            haveASnack(getString(R.string.message_rule_not_removed));
                         }
 
                     }
@@ -141,6 +141,6 @@ public class EditRuleActivity extends BaseActivity {
             e.printStackTrace();
         }
 
-        haveASnack("Something went wrong.");
+        haveASnack(getString(R.string.message_generic_error));
     }
 }

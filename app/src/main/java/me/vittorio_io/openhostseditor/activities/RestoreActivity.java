@@ -4,8 +4,8 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 
 import java.io.File;
@@ -45,16 +45,16 @@ public class RestoreActivity extends BaseActivity {
                         if (HostsManager.writeFromFile(item)) {
                             finish();
                         } else {
-                            haveASnack("Backup not restored.");
+                            haveASnack(getString(R.string.message_backup_not_restored));
                         }
                         return;
                     case 2: // delete pressed
                         if (item.delete()) {
-                            haveASnack("Backup file deleted.");
+                            haveASnack(getString(R.string.message_backup_deleted));
                             RecyclerView viewById = (RecyclerView) findViewById(R.id.backup_list);
                             viewById.setAdapter(iCanHazAdapter());
                         } else {
-                            haveASnack("Failed to remove file.");
+                            haveASnack(getString(R.string.message_backup_not_deleted));
                         }
                         return;
                     default:
@@ -91,7 +91,7 @@ public class RestoreActivity extends BaseActivity {
                     }
 
                 } else {
-                    haveASnack("Permission denied. Nothing to do here.");
+                    haveASnack(getString(R.string.message_permission_denied));
                     finish();
                 }
             }

@@ -40,11 +40,9 @@ public class ManualEditActivity extends BaseActivity {
 
         try {
             HostsManager.writeFromString(getApplicationContext(), string);
-        } catch (IOException e) {
-            e.printStackTrace();
-            haveASnack("Something went wrong.");
         } catch (Exception e) {
-            haveASnack("Oops! ERRORZ!");
+            e.printStackTrace();
+            haveASnack(getString(R.string.message_generic_error));
         }
     }
 

@@ -1,7 +1,7 @@
 package me.vittorio_io.openhostseditor.fragments.hostrule;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by vittorio on 22/07/17.

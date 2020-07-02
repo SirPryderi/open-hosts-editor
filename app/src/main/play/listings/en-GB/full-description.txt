@@ -1,0 +1,5 @@
+REQUIRES ROOT
+
+Free and open source application to edit the /etc/hosts file for android devices. 
+
+GitHub Repository: https://github.com/SirPryderi/OpenHostsEditor

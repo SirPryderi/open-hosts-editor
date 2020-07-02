@@ -1,5 +1,6 @@
 package me.vittorio_io.openhostseditor.activities;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -20,13 +21,16 @@ public class AboutActivity extends BaseActivity {
         View aboutPage = new AboutPage(this)
                 .isRTL(false)
                 .setImage(R.mipmap.ic_launcher)
-                .setDescription("Free and open source application to edit the /etc/hosts file for android devices.\n[Root required]")
-                .addItem(new Element().setTitle("Version 0.10.0-alpha").setGravity(Gravity.CENTER))
-                .addGroup("Connect with us")
+                .setDescription(getString(R.string.app_description))
+                .addGroup(getString(R.string.title_connect))
                 .addGitHub("SirPryderi/OpenHostsEditor", "GitHub Repository")
                 .addPlayStore("me.vittorio_io.openhostseditor")
-                .addWebsite("http://vittorio-io.me/", "Developer Website")
+                .addWebsite("https://sirpryderi.github.io/", "Developer Website")
                 .addEmail("pryderi.mail@gmail.com")
+                .addGroup(getString(R.string.app_version))
+                .addItem(new Element().setTitle(getVersion()))
+                .addGroup(getString(R.string.title_credits))
+                .addItem(new Element().setTitle(getString(R.string.app_credits) + " " + getString(R.string.app_developer)).setGravity(Gravity.CENTER))
                 .addItem(getCopyRightsElement())
                 .create();
 
@@ -36,7 +40,7 @@ public class AboutActivity extends BaseActivity {
 
     Element getCopyRightsElement() {
         Element copyRightsElement = new Element();
-        final String copyrights = String.format(getString(R.string.copy_right) + " " + getString(R.string.dev_name), Calendar.getInstance().get(Calendar.YEAR));
+        final String copyrights = String.format(getString(R.string.app_copyright), Calendar.getInstance().get(Calendar.YEAR));
         final String copyrightNotice = "Licensed under the Apache License, Version 2.0";
         copyRightsElement.setTitle(copyrights);
         copyRightsElement.setGravity(Gravity.CENTER);
@@ -47,5 +51,16 @@ public class AboutActivity extends BaseActivity {
             }
         });
         return copyRightsElement;
+    }
+
+    String getVersion() {
+        try {
+            return getApplicationContext()
+                .getPackageManager()
+                .getPackageInfo(getApplicationContext().getPackageName(), 0)
+                .versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            return "Unknown version";
+        }
     }
 }
