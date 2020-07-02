@@ -28,15 +28,19 @@ public class AboutActivity extends BaseActivity {
                 .addWebsite("https://sirpryderi.github.io/", "Developer Website")
                 .addEmail("pryderi.mail@gmail.com")
                 .addGroup(getString(R.string.app_version))
-                .addItem(new Element().setTitle(getVersion()))
+                .addItem(textElement(getVersion(), false))
                 .addGroup(getString(R.string.title_credits))
-                .addItem(new Element().setTitle(getString(R.string.app_credits) + " " + getString(R.string.app_developer)).setGravity(Gravity.CENTER))
+                .addItem(textElement(getString(R.string.app_credits) + " " + getString(R.string.app_developer), true))
+                .addItem(textElement(getString(R.string.app_contributors) + "  Phil Roggenbuck", true))
                 .addItem(getCopyRightsElement())
                 .create();
 
         setContentView(aboutPage);
     }
 
+    Element textElement(String text, boolean center) {
+        return new Element().setTitle(text).setGravity(center ? Gravity.CENTER : Gravity.START);
+    }
 
     Element getCopyRightsElement() {
         Element copyRightsElement = new Element();

@@ -31,6 +31,7 @@
     <string name="app_credits">Fatta con 💖 da</string>
     <string name="app_version">Versione</string>
     <string name="app_description">Applicazione gratuita e open-source per modificare il file /etc/hosts su dispositivi Android. Root è richiesto affichè l\'app funzioni.</string>
+    <string name="app_contributors">Contributori:</string>
     <string name="title_credits">Crediti</string>
     <string name="title_connect">Link</string>
     <string name="hint_url">URL</string>
