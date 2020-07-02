@@ -18,7 +18,11 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
+
+        <include layout="@layout/fragment_searchbar" />
+
     </com.google.android.material.appbar.AppBarLayout>
+
 
     <include layout="@layout/fragment_hostrule_list" />
 

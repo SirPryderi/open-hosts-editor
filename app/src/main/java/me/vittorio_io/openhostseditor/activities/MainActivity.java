@@ -16,6 +16,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.List;
@@ -33,6 +37,7 @@ public class MainActivity extends BaseActivity {
     private static final int WRITE_BACKUP_ACTION = 0;
     public static List<HostRule> rules;
     private FloatingActionButton fab;
+    private String searchString = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,15 +68,15 @@ public class MainActivity extends BaseActivity {
                     }).show();
         }
 
-        refreshList();
+        refreshList(false);
 
     }
 
-    private void refreshList() {
+    private void refreshList(boolean searching) {
         try {
             if (rules == null) {
                 rules = HostsManager.readFromFile();
-            } else if (!rules.equals(HostsManager.readFromFile())) {
+            } else if (!rules.equals(HostsManager.readFromFile()) && !searching) {
                 rules = HostsManager.readFromFile();
             }
         } catch (IOException e) {
@@ -128,6 +133,95 @@ public class MainActivity extends BaseActivity {
         return true;
     }
 
+    private void searchDialog() {
+        // Opens a Dialog with an EditText to search the host list
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle(R.string.action_search);
+        builder.setCancelable(false);
+
+        final EditText edTxtSearchString = new EditText(this);
+        edTxtSearchString.setText(searchString);
+        edTxtSearchString.setSelection(edTxtSearchString.getText().length());
+        builder.setView(edTxtSearchString);
+
+        if(searchString.length() != 0) {
+            builder.setNeutralButton(R.string.action_reset, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    doSearch("");
+                }
+            });
+        }
+            builder.setPositiveButton(R.string.action_search, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (edTxtSearchString.length() != 0) {
+                        doSearch(edTxtSearchString.getText().toString());
+                    }
+                }
+            });
+
+        builder.setNegativeButton(R.string.action_cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
+    }
+
+    private void doSearch(String searchString) {
+        // Change Visibility of the SearchBar
+        final LinearLayout lin = (LinearLayout) findViewById(R.id.search_layout);
+
+        if(searchString.length() != 0) {
+            this.searchString = searchString;
+            lin.setVisibility(View.VISIBLE);
+            searchFilterList(searchString);
+        } else {
+            this.searchString = "";
+            lin.setVisibility(View.GONE);
+            refreshList(false);
+        }
+
+    }
+
+    private void searchFilterList(String searchString) {
+        // Handle the result of the searchDialog()
+
+        // Handle the button action
+        ImageButton action_search_cancel = (ImageButton) findViewById(R.id.action_search_cancel);
+        action_search_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                doSearch("");
+            }
+        });
+
+
+        // Change TextView to show the current SearchString
+        TextView t = (TextView) findViewById(R.id.search_view_text);
+        t.setText(this.getString(R.string.action_searching)+" \""+searchString+"\"");
+
+        if(searchString.endsWith(" ")) {
+            searchString = searchString.substring(0,searchString.length()-1);
+        }
+        this.searchString = searchString;
+
+        // reset list before new search
+        refreshList(false);
+
+        for(int i=0;i<rules.size();i++) {
+            if(!rules.get(i).getUrl().contains(searchString) && !rules.get(i).getIp().getHostAddress().contains(searchString)) {
+                rules.remove(i);
+                i -= 1;
+            }
+        }
+        refreshList(true);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -160,6 +254,10 @@ public class MainActivity extends BaseActivity {
                 openActivityForResult(AboutActivity.class);
                 return true;
             }
+            case R.id.action_search: {
+                searchDialog();
+                return true;
+            }
         }
 
         return super.onOptionsItemSelected(item);
@@ -168,7 +266,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        refreshList();
+        refreshList(false);
     }
 
     @Override

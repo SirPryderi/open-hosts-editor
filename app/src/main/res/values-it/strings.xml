@@ -8,6 +8,9 @@
     <string name="action_settings">Impostazioni</string>
     <string name="action_about">Informazioni</string>
     <string name="action_save">Salva</string>
+    <string name="action_search">Ricerca</string>
+    <string name="action_reset">Ripristina</string>
+    <string name="action_cancel">Annulla</string>
     <string name="title_no_root">Root non trovato</string>
     <string name="message_no_root">Root non trovato, l\'applicazione potrebbe non funzionare correttamente. Desideri procedere comunque?</string>
     <string name="message_backup_saved">Backup salvato.</string>

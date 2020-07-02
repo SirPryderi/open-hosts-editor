@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Einstellungen</string>
+    <string name="action_backup">Backup</string>
+    <string name="action_restore">Wiederherstellen</string>
+    <string name="action_edit">Bearbeiten</string>
+    <string name="action_confirm">Bestätigen</string>
+    <string name="action_delete">Löschen</string>
+    <string name="action_about">Über</string>
+    <string name="action_save">Speichern</string>
+    <string name="action_search">Suchen</string>
+    <string name="action_reset">Zurücksetzen</string>
+    <string name="action_cancel">Abbrechen</string>
+    <string name="action_search_cancel">Suche abbrechen</string>
+    <string name="action_searching">Suche nach</string>
+</resources>
