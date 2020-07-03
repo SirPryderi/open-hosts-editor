@@ -18,7 +18,7 @@
     <string name="action_reset">Reset</string>
     <string name="action_cancel">Cancel</string>
     <string name="action_search_cancel">Cancel Search</string>
-    <string name="action_searching">Searching for</string>
+    <string name="action_searching">Searching for \"%1$s\"</string>
     <string name="title_no_root">Root not detected</string>
     <string name="message_no_root">Root was not detected, the application might not run as expected. Do you wish to continue anyway?</string>
     <string name="message_failed_to_read_file">Failed to read original hosts file.</string>

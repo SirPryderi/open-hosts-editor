@@ -37,5 +37,5 @@
     <string name="hint_url">URL</string>
     <string name="hint_ip_address">Indirizzo IPv4/IPv6</string>
     <string name="action_search_cancel">Annulla ricerca</string>
-    <string name="action_searching">Ricerca per</string>
+    <string name="action_searching">Ricerca per \"%1$s\"</string>
 </resources>

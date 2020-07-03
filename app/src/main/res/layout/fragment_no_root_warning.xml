@@ -2,38 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/no_root_warning"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorSearchView"
+    android:background="@color/colorWarning"
     android:baselineAligned="false"
     android:clickable="false"
     android:hapticFeedbackEnabled="true"
     android:longClickable="false"
-    android:id="@+id/search_layout"
     android:visibility="gone"
     tools:showIn="@layout/activity_main"
     tools:visibility="visible">
 
     <TextView
-        android:id="@+id/search_view_text"
+        android:id="@+id/no_root_warning_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
         android:layout_weight="3"
         android:textAppearance="?attr/textAppearanceListItem"
-        tools:text="@string/action_searching" />
-
-    <ImageButton
-        android:id="@+id/action_search_cancel"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="6dp"
-        android:adjustViewBounds="false"
-        android:contentDescription="@string/action_search_cancel"
-        android:cropToPadding="false"
-        android:elevation="0dp"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/ic_delete_white_24dp" />
+        android:text="@string/message_no_root"
+        />
 
 </LinearLayout>

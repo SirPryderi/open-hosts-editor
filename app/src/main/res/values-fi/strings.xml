@@ -13,7 +13,7 @@
     <string name="app_version">Versio</string>
     <string name="app_contributors">Osallistuneet:</string>
     <string name="action_search_cancel">Peruuta haku</string>
-    <string name="action_searching">Etsii</string>
+    <string name="action_searching">Etsii \"%1$s\"</string>
     <string name="title_no_root">Root ei löytynyt</string>
     <string name="message_no_root">Root ei löytynyt, applikaatio ei toimi odotetulla tavalla. Haluatko silti jatkaa?</string>
     <string name="message_failed_to_read_file">Alkuperäisen hosts tiedoston lukeminen ei onnistunut.</string>

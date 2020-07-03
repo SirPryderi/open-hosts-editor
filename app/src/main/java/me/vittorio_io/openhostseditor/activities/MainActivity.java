@@ -55,21 +55,10 @@ public class MainActivity extends BaseActivity {
         });
 
         if (!ExecuteAsRootBase.isRootAvailable()) {
-            new AlertDialog.Builder(this)
-                    .setTitle(R.string.title_no_root)
-                    .setMessage(R.string.message_no_root)
-                    .setIcon(R.drawable.ic_warning)
-                    .setPositiveButton(android.R.string.yes, null)
-                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            finish();
-                        }
-                    }).show();
+            findViewById(R.id.no_root_warning).setVisibility(View.VISIBLE);
         }
 
         refreshList(false);
-
     }
 
     private void refreshList(boolean searching) {
@@ -203,7 +192,7 @@ public class MainActivity extends BaseActivity {
 
         // Change TextView to show the current SearchString
         TextView t = (TextView) findViewById(R.id.search_view_text);
-        t.setText(this.getString(R.string.action_searching)+" \""+searchString+"\"");
+        t.setText(getString(R.string.action_searching, searchString));
 
         if(searchString.endsWith(" ")) {
             searchString = searchString.substring(0,searchString.length()-1);
