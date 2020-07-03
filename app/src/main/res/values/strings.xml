@@ -32,8 +32,8 @@
     <string name="action_edit_rule">Edit rule</string>
     <string name="action_delete_rule">Delete rule</string>
     <string name="message_confirm_delete_rule">Do you really want to delete this rule?</string>
-    <string name="message_rule_removed">Rule removed.</string>
-    <string name="message_rule_not_removed">Failed to remove rule.</string>
+    <string name="message_rule_removed">Rule deleted.</string>
+    <string name="message_rule_not_removed">Failed to delete rule.</string>
     <string name="message_generic_error">Something went wrong.</string>
     <string name="message_preview_not_loaded">Failed to load preview.</string>
     <string name="title_connect">Links</string>

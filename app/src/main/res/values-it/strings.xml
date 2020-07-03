@@ -21,8 +21,8 @@
     <string name="action_add_rule">Aggiungi regola</string>
     <string name="action_delete_rule">Elimina regola</string>
     <string name="message_confirm_delete_rule">Vuoi davvero eliminare questa regola?</string>
-    <string name="message_rule_removed">Regola rimossa.</string>
-    <string name="message_rule_not_removed">Impossible rimuovere la regola.</string>
+    <string name="message_rule_removed">Regola eliminate.</string>
+    <string name="message_rule_not_removed">Impossible eliminare la regola.</string>
     <string name="message_generic_error">Qualcosa è andato storto.</string>
     <string name="message_backup_deleted">Backup eliminato con successo.</string>
     <string name="message_backup_not_deleted">Impossibile eliminare il backup.</string>
