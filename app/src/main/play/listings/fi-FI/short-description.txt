@@ -1,0 +1,1 @@
+Ilmainen applikaatio /etc/hosts tiedoston editoimiseen Android laitteille. Vaatii Root:in toimiakseen.

@@ -1,0 +1,37 @@
+<resources>
+    <string name="action_settings">Asetukset</string>
+    <string name="action_backup">Varmuuskopioi</string>
+    <string name="action_restore">Palauta</string>
+    <string name="action_edit">Muokkaa</string>
+    <string name="action_confirm">Vahvista</string>
+    <string name="action_delete">Poista</string>
+    <string name="action_about">Tiedot</string>
+    <string name="action_save">Tallenna</string>
+    <string name="action_search">Hae</string>
+    <string name="action_reset">Tyhjennä</string>
+    <string name="action_cancel">Peruuta</string>
+    <string name="app_version">Versio</string>
+    <string name="app_contributors">Osallistuneet:</string>
+    <string name="action_search_cancel">Peruuta haku</string>
+    <string name="action_searching">Etsii</string>
+    <string name="title_no_root">Root ei löytynyt</string>
+    <string name="message_no_root">Root ei löytynyt, applikaatio ei toimi odotetulla tavalla. Haluatko silti jatkaa?</string>
+    <string name="message_failed_to_read_file">Alkuperäisen hosts tiedoston lukeminen ei onnistunut.</string>
+    <string name="message_backup_saved">Varmuuskopio tallennettu.</string>
+    <string name="message_backup_not_saved">Varmuuskopiota ei pystytty tallentamaan.</string>
+    <string name="message_backup_not_restored">Varmuuskopiota ei pystytty palauttamaan.</string>
+    <string name="message_backup_deleted">Varmuuskopio poistettu.</string>
+    <string name="message_backup_not_deleted">Varmuuskopion poisto epäonnistui.</string>
+    <string name="message_permission_denied">Lupa estetty. Muutoksia ei ole tehty.</string>
+    <string name="action_add_rule">Lisää sääntö</string>
+    <string name="action_edit_rule">Muokkaa sääntöä</string>
+    <string name="action_delete_rule">Poista sääntö</string>
+    <string name="message_confirm_delete_rule">Haluatko todella poistaa tämän säännön?</string>
+    <string name="message_rule_removed">Sääntö poistettu.</string>
+    <string name="message_rule_not_removed">Säännön poistaminen epäonnistui.</string>
+    <string name="message_generic_error">Jotain meni pieleen.</string>
+    <string name="message_preview_not_loaded">Esikatselun lataaminen epäonnistui.</string>
+    <string name="title_connect">Linkit</string>
+    <string name="hint_url">URL</string>
+    <string name="hint_ip_address">IPv4/IPv6 Osoite</string>
+</resources>
