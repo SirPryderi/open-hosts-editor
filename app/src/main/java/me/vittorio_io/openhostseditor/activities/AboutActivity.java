@@ -1,6 +1,8 @@
 package me.vittorio_io.openhostseditor.activities;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -23,10 +25,10 @@ public class AboutActivity extends BaseActivity {
                 .setImage(R.mipmap.ic_launcher)
                 .setDescription(getString(R.string.app_description))
                 .addGroup(getString(R.string.title_connect))
+                .addItem(koFiElement())
                 .addGitHub("SirPryderi/OpenHostsEditor", "GitHub Repository")
                 .addPlayStore("me.vittorio_io.openhostseditor")
                 .addWebsite("https://sirpryderi.github.io/", "Developer Website")
-                .addEmail("pryderi.mail@gmail.com")
                 .addGroup(getString(R.string.app_version))
                 .addItem(textElement(getVersion(), false))
                 .addGroup(getString(R.string.title_credits))
@@ -40,6 +42,13 @@ public class AboutActivity extends BaseActivity {
 
     Element textElement(String text, boolean center) {
         return new Element().setTitle(text).setGravity(center ? Gravity.CENTER : Gravity.START);
+    }
+
+    Element koFiElement() {
+        Uri uri = Uri.parse("https://ko-fi.com/sirpryderi");
+        String text = getString(R.string.app_coffee);
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
+        return textElement(text, false).setIconDrawable(R.drawable.ic_ko_fi).setIntent(browserIntent);
     }
 
     Element getCopyRightsElement() {

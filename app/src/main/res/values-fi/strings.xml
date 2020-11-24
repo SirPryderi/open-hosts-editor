@@ -34,4 +34,5 @@
     <string name="title_connect">Linkit</string>
     <string name="hint_url">URL</string>
     <string name="hint_ip_address">IPv4/IPv6 Osoite</string>
+    <string name="app_coffee">Osta minulle sumppi</string>
 </resources>
