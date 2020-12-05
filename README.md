@@ -1,13 +1,43 @@
-# OpenHostsEditor [![Build Status](https://travis-ci.com/SirPryderi/OpenHostsEditor.svg?branch=master)](https://travis-ci.com/SirPryderi/OpenHostsEditor)
-Free and open source application to edit the /etc/hosts file for android devices. **Root required.**
+# <img src="app/src/main/play/listings/en-GB/graphics/icon/1.png" alt="icon" width="20"/> Open Hosts Editor for Android [![Build Status](https://travis-ci.com/SirPryderi/OpenHostsEditor.svg?branch=master)](https://travis-ci.com/SirPryderi/OpenHostsEditor)
+> ⚠ **ROOT REQUIRED**
 
-# Download
-Download from [Play Store](https://play.google.com/store/apps/details?id=me.vittorio_io.openhostseditor).
+Open Hosts Editor is a free and open source application to edit the `/etc/hosts` file for android devices. 
 
-# Contributions
+It is available for download from [Play Store](https://play.google.com/store/apps/details?id=me.vittorio_io.openhostseditor).
 
-All contributions are welcome!
+Your device **must be rooted**. Not all devices have the hosts file in the same path, so it might not work on yours. 
+You can submit an issue so that I can investigate.
 
-🌍 This project is looking for translators!
+The application is **free** and contains **no ad**.
+
+## Contributions
+> 🌍 This project is looking for translators!
+
+Open Hosts Editor needs your help, all contributions are welcome! Open a PR, submit an issue, or suggest a feature!
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I42ROKG)
+
+## Screenshots
+
+<span>
+  <img src="app/src/main/play/listings/en-GB/graphics/phone-screenshots/1.png" alt="screenshot" width="200"/>
+  <img src="app/src/main/play/listings/en-GB/graphics/phone-screenshots/2.png" alt="screenshot" width="200"/>
+  <img src="app/src/main/play/listings/en-GB/graphics/phone-screenshots/3.png" alt="screenshot" width="200"/>
+</span>
+
+## Building the app
+The required android SDK is 29.
+
+The easiest way of building and running the app is by opening the project on Android Studio.
+
+Building from the command line is equally easy, just run:
+
+Windows:
+```cmd
+gradlew.bat build
+```
+
+*nix:
+```bash
+./gradlew build
+```
