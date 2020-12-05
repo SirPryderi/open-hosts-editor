@@ -25,7 +25,8 @@ public class AboutActivity extends BaseActivity {
                 .setImage(R.mipmap.ic_launcher)
                 .setDescription(getString(R.string.app_description))
                 .addGroup(getString(R.string.title_connect))
-                .addItem(koFiElement())
+                // GooglePlay doesn't like donations
+                // .addItem(koFiElement())
                 .addGitHub("SirPryderi/OpenHostsEditor", "GitHub Repository")
                 .addPlayStore("me.vittorio_io.openhostseditor")
                 .addWebsite("https://sirpryderi.github.io/", "Developer Website")
