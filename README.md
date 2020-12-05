@@ -1,4 +1,4 @@
-# <img src="app/src/main/play/listings/en-GB/graphics/icon/1.png" alt="icon" width="20"/> Open Hosts Editor for Android [![Build Status](https://travis-ci.com/SirPryderi/OpenHostsEditor.svg?branch=master)](https://travis-ci.com/SirPryderi/OpenHostsEditor)
+# <img src="app/src/main/play/listings/en-GB/graphics/icon/1.png" alt="icon" width="20"/> Open Hosts Editor for Android [![Build Status](https://travis-ci.com/SirPryderi/open-hosts-editor.svg?branch=master)](https://travis-ci.com/SirPryderi/open-hosts-editor)
 > ⚠ **ROOT REQUIRED**
 
 Open Hosts Editor is a free and open source application to edit the `/etc/hosts` file for android devices. 

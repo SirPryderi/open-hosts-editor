@@ -27,7 +27,7 @@ public class AboutActivity extends BaseActivity {
                 .addGroup(getString(R.string.title_connect))
                 // GooglePlay doesn't like donations
                 // .addItem(koFiElement())
-                .addGitHub("SirPryderi/OpenHostsEditor", "GitHub Repository")
+                .addGitHub("SirPryderi/open-hosts-editor", "GitHub Repository")
                 .addPlayStore("me.vittorio_io.openhostseditor")
                 .addWebsite("https://sirpryderi.github.io/", "Developer Website")
                 .addGroup(getString(R.string.app_version))

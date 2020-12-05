@@ -2,4 +2,4 @@ VAATII ROOT:IN TOIMIAKSEEN
 
 Ilmainen ja avoin lähdekoodi applikaatio /etc/hosts tiedoston editoimiseen Android laitteille. 
 
-GitHub säilytyspaikka: https://github.com/SirPryderi/OpenHostsEditor
+GitHub säilytyspaikka: https://github.com/SirPryderi/open-hosts-editor
