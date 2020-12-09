@@ -1,5 +1,10 @@
-ROOT RICHIESTO
+⚠ ROOT RICHIESTO ⚠
 
 Applicazione gratuita ed open-source per modificare il file /etc/hosts nei dispositivi Android.
 
-GitHub Repository: https://github.com/SirPryderi/open-hosts-editor
+Il tuo dispositivo deve avere privilegi root. Non tutti i dispositivi hanno il file hosts nello stesso percorso, pertanto potrebbe non funzionare sul tuo. Apri un issue su GitHub se questo è il caso.
+
+L'applicazione è gratuita, open source, e non contiene pubblicità.
+
+Repository GitHub: https://github.com/SirPryderi/open-hosts-editor
+Server Discord: https://discord.gg/cByqs7zw

@@ -1,5 +1,10 @@
-REQUIRES ROOT
+⚠ REQUIRES ROOT ⚠
 
 Free and open source application to edit the /etc/hosts file for Android devices.
 
+Your device must be rooted. Not all devices have the hosts file in the same path, so it might not work on yours. You can submit an issue so that I can investigate.
+
+The application is free, open source, and contains no ad.
+
 GitHub Repository: https://github.com/SirPryderi/open-hosts-editor
+Discord Server: https://discord.gg/cByqs7zw

@@ -1,5 +1,6 @@
-VAATII ROOT:IN TOIMIAKSEEN
+⚠ VAATII ROOT:IN TOIMIAKSEEN ⚠
 
 Ilmainen ja avoin lähdekoodi applikaatio /etc/hosts tiedoston editoimiseen Android laitteille. 
 
 GitHub säilytyspaikka: https://github.com/SirPryderi/open-hosts-editor
+Discord Server: https://discord.gg/cByqs7zw
