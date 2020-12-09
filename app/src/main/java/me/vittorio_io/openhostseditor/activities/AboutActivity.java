@@ -28,6 +28,7 @@ public class AboutActivity extends BaseActivity {
                 // GooglePlay doesn't like donations
                 // .addItem(koFiElement())
                 .addGitHub("SirPryderi/open-hosts-editor", "GitHub Repository")
+                .addItem(discordElement())
                 .addPlayStore("me.vittorio_io.openhostseditor")
                 .addWebsite("https://sirpryderi.github.io/", "Developer Website")
                 .addGroup(getString(R.string.app_version))
@@ -50,6 +51,13 @@ public class AboutActivity extends BaseActivity {
         String text = getString(R.string.app_coffee);
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
         return textElement(text, false).setIconDrawable(R.drawable.ic_ko_fi).setIntent(browserIntent);
+    }
+
+    Element discordElement() {
+        Uri uri = Uri.parse("https://discord.gg/ddv7VRY2vh");
+        String text = getString(R.string.app_discord);
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
+        return textElement(text, false).setIconDrawable(R.drawable.ic_discord_logo).setIntent(browserIntent);
     }
 
     Element getCopyRightsElement() {
