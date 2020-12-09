@@ -7,4 +7,4 @@ Il tuo dispositivo deve avere privilegi root. Non tutti i dispositivi hanno il f
 L'applicazione è gratuita, open source, e non contiene pubblicità.
 
 Repository GitHub: https://github.com/SirPryderi/open-hosts-editor
-Server Discord: https://discord.gg/cByqs7zw
+Server Discord: https://discord.gg/ddv7VRY2vh

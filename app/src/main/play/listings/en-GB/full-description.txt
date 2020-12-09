@@ -7,4 +7,4 @@ Your device must be rooted. Not all devices have the hosts file in the same path
 The application is free, open source, and contains no ad.
 
 GitHub Repository: https://github.com/SirPryderi/open-hosts-editor
-Discord Server: https://discord.gg/cByqs7zw
+Discord Server: https://discord.gg/ddv7VRY2vh
