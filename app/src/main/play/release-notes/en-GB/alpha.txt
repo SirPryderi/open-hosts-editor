@@ -1,2 +1,1 @@
-- Update icon
-- Add Discord server link
+- Add Indonesian translation
